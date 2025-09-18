@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anas Civil Engineer - مهندس مدني</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* أساسيات التصميم */
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* الترويسة */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--light-color);
+        }
+
+        /* قسم البطل */
+        .hero {
+            background: url(images/هيرو.jfif) center/cover no-repeat;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            color: white;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-content {
+            position: relative;
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+        }
+
+        /* قسم البرامج */
+        .section-title {
+            text-align: center;
+            margin: 3rem 0 2rem;
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--secondary-color);
+            margin: 0.5rem auto;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .program-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .program-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .program-content {
+            padding: 1.5rem;
+        }
+
+        .program-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .program-description {
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+
+        .download-btn {
+            background: var(--accent-color);
+            width: 100%;
+            text-align: center;
+        }
+
+        .download-btn:hover {
+            background: #c0392b;
+        }
+
+        /* قسم المشاريع */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .project-card {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 250px;
+        }
+
+        .project-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(52, 152, 219, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.5s;
+            padding: 1rem;
+            text-align: center;
+            color: white;
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-card:hover .project-img {
+            transform: scale(1.1);
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* الفوتر */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .social-links {
+            margin: 1rem 0;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* responsive design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-links {
+                margin-top: 1rem;
+            }
+
+            .nav-links li {
+                margin: 0 0.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .programs-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- الترويسة -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">Anas Civil Engineer</div>
+            <ul class="nav-links">
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#programs">البرامج</a></li>
+                <li><a href="#projects">المشاريع</a></li>
+                <li><a href="#contact">اتصل بي</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- قسم البطل -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>أنس مهندس مدني محترف</h1>
+            <p>أقدم لكم مجموعة من البرامج الهندسية المتخصصة لتسهيل عمليات التصميم والتحليل الإنشائي</p>
+            <a href="#programs" class="btn">استعرض البرامج</a>
+        </div>
+    </section>
+
+    <!-- قسم البرامج -->
+    <section id="programs">
+        <div class="container">
+            <h2 class="section-title">البرامج الهندسية</h2>
+            <div class="programs-grid">
+                <!-- برنامج 1 -->
+                <div class="program-card">
+                    <img src="images/autocad.png" alt="برنامج لتصميم و  لإنشاء رسومات ثنائية وثلاثية الأبعاد" class="program-img">
+                    <div class="program-content">
+                        <h3 class="program-title">برنامج هندسي الإنشائي</h3>
+                        <p class="program-description">برنامج متخصص في تصميم رسومات ثنائية و ثلاثية الأبعاد  الدقيقة     .</p>
+                        <a href="https://autocad.softonic-ar.com/" class="btn download-btn">تحميل البرنامج</a>
+                    </div>
+                </div>
+
+                <!-- برنامج 2 -->
+                <div class="program-card">
+                    <img src="images/etabs.png" alt="برنامج التصميم الهندسي" class="program-img">
+                    <div class="program-content">
+                        <h3 class="program-title">برنامج التصميم الهندسي</h3>
+                        <p class="program-description">   يُستخدم لتصميم المباني الخرسانية بشكل ثلاثي الأبعاد</p>
+                        <a href="https://heshamtarek.com/files/%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC-%D8%A7%D9%84%D8%A5%D9%8A%D8%AA%D8%A7%D8%A8%D8%B3-etabs/" class="btn download-btn">تحميل البرنامج</a>
+                    </div>
+                </div>
+
+                <!-- برنامج 3 -->
+                <div class="program-card">
+                    <img src="images/revit.png" alt="برنامج  التصميم الهندسي" class="program-img">
+                    <div class="program-content">
+                        <h3 class="program-title">برنامج التصميم الهندسي </h3>
+                        <p class="program-description">برنامج متخصص في نمذجة معلومات البناء</p>
+                        <a href="https://mutazprogram.com/revit-2019-portable/" class="btn download-btn">تحميل البرنامج</a>
+                    </div>
+
+                      <!-- برنامج 4  -->
+                <div class="program-card">
+                    <img src="images/Roboto.jpg" alt="برنامج التصميم الهندسي" class="program-img">
+                    <div class="program-content">
+                        <h3 class="program-title">برنامج التصميم الهندسي </h3>
+                        <p class="program-description"> تحليل وتصميم العناصر الإنشائيةالهندسية  </p>
+                        <a href="https://ar4up.com/%D8%AA%D8%AD%D9%85%D9%8A%D9%84-%D8%A8%D8%B1%D9%86%D8%A7%D9%85%D8%AC-autodesk-robot-structural-analysis-professional-%D9%85%D8%AC%D8%A7%D9%86%D8%A7%D9%8B/" class="btn download-btn">تحميل البرنامج</a>
+                    </div>
+                   
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم المشاريع -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">المشاريع المنفذة</h2>
+            <div class="projects-grid">
+                <!-- مشروع 1 -->
+                <div class="project-card">
+                    <img src="images/مشروع اوتوكاد.jpg" alt="مشروع اوتوكاد" class="project-img">
+                    <div class="project-overlay">
+                        <h3 class="project-title">تصميم  مبنى </h3>
+                        <p>تصميم مبنى ثنائي الابعاد باستخدام اوتوكاد </p>
+                    </div>
+                </div>
+
+                <!-- مشروع 2 -->
+                <div class="project-card">
+                    <img src="images/ايتابس مشروع.jpg" alt="مشروع ايتابس" class="project-img">
+                    <div class="project-overlay">
+                        <h3 class="project-title"> مشروع عزوم السقف في المبنى</h3>
+                        <p>    تصميم عزوم لسقف المبنة باستخدام ايتابس   </p>
+                    </div>
+                </div>
+
+                <!-- مشروع 3 -->
+                <div class="project-card">
+                    <img src="images/ريفيت مشروع.jpg" alt="مشروع ريفيت" class="project-img">
+                    <div class="project-overlay">
+                        <h3 class="project-title"> مبنى عصري </h3>
+                        <p>  تصميم انشائي ونمذجة باستخدام برنامج ريفيت</p>
+                    </div>
+                </div>
+
+                <!-- مشروع 4 -->
+                <div class="project-card">
+                    <img src="images/مشروع روبوت.jfif" alt="مشروع روبوت" class="project-img">
+                    <div class="project-overlay">
+                        <h3 class="project-title">مبنى ضخم  </h3>
+                        <p>   تصميم مبنى ضخم و نمذجه باستخدام برنامج روبوت </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- الفوتر -->
+    <footer id="contact">
+        <div class="container footer-content">
+            <h2>Anas Civil Engineer</h2>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p>© 2023 جميع الحقوق محفوظة | أنس مهندس مدني</p>
+        </div>
+    </footer>
+
+    <script>
+        // كود JavaScript لجعل الموقع تفاعلياً
+        document.addEventListener('DOMContentLoaded', function() {
+            // تأثير التمرير السلس للروابط
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // تأثير الظهور للعناصر عند التمرير
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            // مراقبة العناصر لإضافة تأثير الظهور
+            document.querySelectorAll('.program-card, .project-card, .section-title').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transition = 'opacity 0.5s ease-in-out, transform 0.5s ease-in-out';
+                observer.observe(el);
+                
+                // إضافة صنف visible عند الظهور
+                el.classList.add('visible-element');
+            });
+
+            // إعادة تعريف الصنف visible
+            const style = document.createElement('style');
+            style.textContent = `
+                .visible-element.visible {
+                    opacity: 1 !important;
+                    transform: translateY(0) !important;
+                }
+                .program-card {
+                    transform: translateY(20px);
+                }
+                .project-card {
+                    transform: translateY(20px) rotate(2deg);
+                }
+                .section-title {
+                    transform: translateY(-20px);
+                }
+            `;
+            document.head.appendChild(style);
+        });
+    </script>
+</body>
+</html>
