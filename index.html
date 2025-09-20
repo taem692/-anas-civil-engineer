@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anas Civil Engineer - مهندس مدني</title>
+    <title>Anas Civil Engineer - مهندس مدني محترف</title>
+    <meta name="description" content="موقع المهندس أنس - برامج هندسية متخصصة وتصاميم إنشائية دقيقة لمشاريع البناء والهندسة المدنية">
+    <meta name="keywords" content="هندسة مدنية, برامج هندسية, تصميم إنشائي, مشاريع بناء, أنس مهندس, تحميل برامج هندسية">
+    <meta name="author" content="Anas Civil Engineer">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* أساسيات التصميم */
         :root {
             --primary-color: #2c3e50;
             --secondary-color: #3498db;
             --accent-color: #e74c3c;
+            --whatsapp-color: #25D366;
+            --facebook-color: #3b5998;
             --light-color: #ecf0f1;
             --dark-color: #2c3e50;
             --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -36,7 +40,6 @@
             padding: 0 15px;
         }
 
-        /* الترويسة */
         header {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
@@ -77,9 +80,8 @@
             color: var(--light-color);
         }
 
-        /* قسم البطل */
         .hero {
-            background: url(images/هيرو.jfif) center/cover no-repeat;
+            background: url('images/هيرو.jfif') center/cover no-repeat;
             height: 80vh;
             display: flex;
             align-items: center;
@@ -121,15 +123,32 @@
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
-            transition: background 0.3s;
+            transition: all 0.3s;
             cursor: pointer;
+            text-align: center;
         }
 
         .btn:hover {
             background: #2980b9;
+            transform: translateY(-2px);
         }
 
-        /* قسم البرامج */
+        .btn-whatsapp {
+            background: var(--whatsapp-color);
+        }
+
+        .btn-whatsapp:hover {
+            background: #128C7E;
+        }
+
+        .btn-facebook {
+            background: var(--facebook-color);
+        }
+
+        .btn-facebook:hover {
+            background: #2d4373;
+        }
+
         .section-title {
             text-align: center;
             margin: 3rem 0 2rem;
@@ -197,7 +216,6 @@
             background: #c0392b;
         }
 
-        /* قسم المشاريع */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -251,7 +269,38 @@
             margin-bottom: 0.5rem;
         }
 
-        /* الفوتر */
+        /* قسم التواصل */
+        .contact-section {
+            background: linear-gradient(to right, #f5f5f5, #e0e0e0);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-btn i {
+            margin-left: 0.5rem;
+            font-size: 1.2rem;
+        }
+
         footer {
             background: var(--dark-color);
             color: white;
@@ -274,13 +323,58 @@
             font-size: 1.5rem;
             margin: 0 0.5rem;
             transition: color 0.3s;
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            text-align: center;
         }
 
         .social-links a:hover {
             color: var(--secondary-color);
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
         }
 
-        /* responsive design */
+        /* زر واتساب عائم */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 60px;
+            height: 60px;
+            background: var(--whatsapp-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            transition: all 0.3s;
+            animation: pulse 2s infinite;
+        }
+
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
+            background: #128C7E;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
@@ -289,10 +383,12 @@
 
             .nav-links {
                 margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
             }
 
             .nav-links li {
-                margin: 0 0.5rem;
+                margin: 0.5rem;
             }
 
             .hero h1 {
@@ -302,6 +398,16 @@
             .programs-grid,
             .projects-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-btn {
+                width: 100%;
+                max-width: 300px;
             }
         }
     </style>
@@ -329,6 +435,7 @@
         </div>
     </section>
 
+ 
     <!-- قسم البرامج -->
     <section id="programs">
         <div class="container">
@@ -422,22 +529,44 @@
         </div>
     </section>
 
+    <!-- قسم التواصل -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">تواصل معي</h2>
+            <p>يمكنك التواصل معي عبر أي من الوسائل التالية</p>
+            
+            <div class="contact-buttons">
+                <a href="https://wa.me/963936945201?text=مرحباً،%20أرغب%20في%20الاستفسار%20عن%20خدماتك%20الهندسية" class="contact-btn btn-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i> تواصل عبر واتساب
+                </a>
+                
+                <a href="https://www.facebook.com/share/1CHhobZ455/" class="contact-btn btn-facebook" target="_blank">
+                    <i class="fab fa-facebook"></i> تابعني على فيسبوك
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- زر واتساب عائم -->
+    <a href="https://wa.me/963936945201?text=مرحباً،%20أرغب%20في%20الاستفسار%20عن%20خدماتك%20الهندسية" class="floating-whatsapp" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
     <!-- الفوتر -->
-    <footer id="contact">
+    <footer>
         <div class="container footer-content">
             <h2>Anas Civil Engineer</h2>
             <div class="social-links">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/1CHhobZ455/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/AnasCivil" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/zeedanas?igsh=YjN1dTd2eDZpNm5r" target="_blank"><i class="fab fa-instagram"></i></a>
             </div>
             <p>© 2023 جميع الحقوق محفوظة | أنس مهندس مدني</p>
+            <p>سوريا - سلمية | هاتف: 0936945201   </p>
         </div>
     </footer>
 
     <script>
-        // كود JavaScript لجعل الموقع تفاعلياً
         document.addEventListener('DOMContentLoaded', function() {
             // تأثير التمرير السلس للروابط
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
